@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).send('Hello World!');
+  res.status(200).send('Hello World!2');
 });
 
 export default app;
