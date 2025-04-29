@@ -12,7 +12,7 @@ export const checkBalanceController: RequestHandler = async (req: Request, res: 
             abortEarly: false,
             stripUnknown: true,
         });
-        const user = await getDetailBalance(id);
+        const user: IUser = await getDetailBalance(id);
         if (!user) {
             throw new AppError("NotFound", `User with ID ${id} not found`);
         }
