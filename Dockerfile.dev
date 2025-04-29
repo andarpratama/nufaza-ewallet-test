@@ -1,0 +1,17 @@
+# Dockerfile.dev
+FROM node:20.9.0-alpine
+
+WORKDIR /app
+
+# 1. Install deps
+COPY package*.json ./
+RUN npm ci
+
+# 2. Copy *all* your files (including prisma/schema.prisma)
+COPY . .
+
+# 3. Generate Prisma client
+RUN npx prisma generate
+
+# 4. Start in dev mode (ts-node-dev)
+CMD ["npm", "run", "dev"]
