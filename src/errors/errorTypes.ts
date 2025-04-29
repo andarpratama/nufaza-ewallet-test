@@ -4,12 +4,10 @@ export interface ErrorConfig {
   }
   
   export const errorMap: Record<string, ErrorConfig> = {
-    // -- generic not found
     NotFound: {
       statusCode: 404,
       message: 'Resource not found',
     },
-    // -- Register
     UsernameOrEmailRequired: {
       statusCode: 422,
       message: 'Username or email is required',
@@ -22,7 +20,6 @@ export interface ErrorConfig {
       statusCode: 422,
       message: 'Email is required',
     },
-    // -- Login
     InvalidEmail: {
       statusCode: 422,
       message: 'Invalid email format',
@@ -35,5 +32,4 @@ export interface ErrorConfig {
       statusCode: 401,
       message: 'Invalid password',
     },
-    // ... add other codes as needed
   };

@@ -9,7 +9,6 @@ export const idParamSchema = yup.object({
   id: yup
     .number()
     .transform((val, orig) => {
-      // when orig is a string, convert it
       return typeof orig === 'string' && orig.match(/^\d+$/)
         ? parseInt(orig, 10)
         : NaN;
