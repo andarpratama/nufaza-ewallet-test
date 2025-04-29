@@ -9,9 +9,19 @@ datasource db {
 }
 
 model User {
+  id           Int           @id @default(autoincrement())
+  name         String
+  balance      Int           @default(0)
+  email        String        @unique
+  createdAt    DateTime      @default(now())
+  transactions Transaction[]
+}
+
+model Transaction {
   id        Int      @id @default(autoincrement())
-  name      String
-  balance   Int      @default(0)
-  email     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  type      String
+  amount    Int 
   createdAt DateTime @default(now())
 }

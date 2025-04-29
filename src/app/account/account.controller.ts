@@ -71,3 +71,54 @@ export const addDeposit: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const withdrawBalanceController: RequestHandler = async (req, res, next) => {
+  try {
+    const { id } = await idParamSchema.validate(req.params, {
+      abortEarly: false,
+      stripUnknown: true,
+    });
+
+    const { amount } = await addDepositeSchema.validate(req.body, {
+      abortEarly: false,
+      stripUnknown: true,
+    });
+
+    const user = await getDetailBalance(id);
+    if (!user) {
+      throw new AppError('NotFound', `User with ID ${id} not found`);
+    }
+
+    const convertedAmount = parseInt(amount.toString(), 10)
+    const convertedBalance = parseInt(user.balance.toString(), 10)
+
+    if (convertedAmount > convertedBalance) {
+      res.status(409).json({
+        message: 'Your balance is not enough.'
+      });
+      return
+    }
+    
+
+    if (amount) {
+      const newBalance = convertedBalance - convertedAmount;
+      const updatedUser = await updateBalance(id, newBalance);
+      res.status(200).json(updatedUser);
+      return; 
+    }
+
+    res.status(200).json(user);
+    return;
+  } catch (error: any) {
+    if (error instanceof yup.ValidationError) {
+      res.status(400).json({
+        errors: error.inner.map(err => ({
+          field: err.path,
+          message: err.message,
+        })),
+      });
+      return;
+    }
+    next(error);
+  }
+};
+
