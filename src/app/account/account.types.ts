@@ -12,11 +12,19 @@ export type TransferResponse = {
   };
 
   export type BalanceResponse = {
-    balance: number;
+    balance: number | null;
   };
   export type DepositResponse = {
-    balance: number;
+    balance: number | null;
   };
   export type WithdrawResponse = {
     balance: number;
   };
+
+  
+export interface TransactionRecord {
+    id: number;
+    type: 'DEPOSIT' | 'WITHDRAW' | 'TRANSFER_IN' | 'TRANSFER_OUT';
+    amount: number;
+    createdAt: Date;
+  }

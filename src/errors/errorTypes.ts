@@ -12,17 +12,21 @@ export interface ErrorConfig {
       statusCode: 404,
       message: 'Resource not found',
     },
+    BadRequest: {
+      statusCode: 400,
+      message: 'Bad Request',
+    },
+    Conflict: {
+      statusCode: 409,
+      message: 'Resource not found',
+    },
     UsernameOrEmailRequired: {
       statusCode: 422,
       message: 'Username or email is required',
     },
-    NameRequired: {
+    BodyRequired: {
       statusCode: 422,
-      message: 'Name is required',
-    },
-    EmailRequired: {
-      statusCode: 422,
-      message: 'Email is required',
+      message: '<Name> is required',
     },
     InvalidEmail: {
       statusCode: 422,
