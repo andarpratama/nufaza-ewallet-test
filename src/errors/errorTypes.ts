@@ -4,6 +4,10 @@ export interface ErrorConfig {
   }
   
   export const errorMap: Record<string, ErrorConfig> = {
+    NotAllowed: {
+      statusCode: 400,
+      message: 'Not Allowed',
+    },
     NotFound: {
       statusCode: 404,
       message: 'Resource not found',

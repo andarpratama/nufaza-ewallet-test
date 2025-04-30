@@ -1,4 +1,3 @@
-// src/__tests__/checkBalance.controller.test.ts
 import { Request, Response, NextFunction } from 'express';
 import * as yup from 'yup';
 import { checkBalanceController } from '../app/account/account.controller';

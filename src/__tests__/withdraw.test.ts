@@ -1,4 +1,3 @@
-// src/__tests__/withdrawBalance.controller.test.ts
 import { Request, Response, NextFunction } from 'express';
 import * as yup from 'yup';
 import { withdrawBalanceController } from '../app/account/account.controller';
