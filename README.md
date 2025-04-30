@@ -58,6 +58,10 @@ The project focuses on building a scalable and maintainable backend system for m
    ```bash
    docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
    ```
+4. Run Migration:
+   ```bash
+   docker compose -f docker-compose.yml exec app npx prisma migrate prod --name init
+   ```
 ---
 ## 🔧 Docker Installation (Prod Environment)
 
@@ -75,6 +79,10 @@ The project focuses on building a scalable and maintainable backend system for m
 3. Build & Run with Docker:
    ```bash
    docker compose up --build
+   ```
+4. Run Migration:
+   ```bash
+   docker compose -f docker-compose.dev.yml exec app npx prisma migrate prod --dev init
    ```
 ---
 
