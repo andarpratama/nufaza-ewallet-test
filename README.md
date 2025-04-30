@@ -14,6 +14,14 @@ The project focuses on building a scalable and maintainable backend system for m
 
 ---
 
+
+## 🌐 Live Demo & API Docs
+
+- **🚀 Deployed API URL**: [https://nufaza-ewallet.duckdns.org/](https://nufaza-ewallet.duckdns.org/)
+- **🚀 or the IP URL**: [https://34.152.17.208/](https://34.152.17.208/)
+- **📭 Postman Collection**: [Postman Docs](https://www.postman.com/andarpratama/nufaza/overview)
+
+
 ## 🚀 Tech Stack
 
 - **Node.js** & **Express.js**
