@@ -7,7 +7,11 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).send('Hello World!');
+  res.status(200).json({
+    success: true,
+    message: "Hello from E-Wallet API",
+    author: "andarpratama"
+  });
 });
 app.use(router)
 app.use(errorHandler);
