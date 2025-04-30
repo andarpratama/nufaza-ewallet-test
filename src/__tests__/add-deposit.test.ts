@@ -1,4 +1,3 @@
-// src/__tests__/addDeposit.controller.test.ts
 import { Request, Response, NextFunction } from 'express';
 import * as yup from 'yup';
 import { addDeposit } from '../app/account/account.controller';
@@ -19,7 +18,6 @@ describe('addDeposit controller', () => {
     };
     next = jest.fn() as any;
 
-    // Default: validations succeed
     jest.spyOn(idParamSchema, 'validate').mockResolvedValue({ id: 1 } as any);
     jest.spyOn(addDepositeSchema, 'validate').mockResolvedValue({ amount: 50 } as any);
   });
@@ -92,7 +90,6 @@ describe('addDeposit controller', () => {
     req.body = { amount: 0 };
     const user = { id: 1, balance: 100 };
   
-    // Override the default mock here to simulate a falsy amount
     (addDepositeSchema.validate as jest.Mock).mockResolvedValue({ amount: 0 });
   
     jest.spyOn(accountService, 'getDetailBalance').mockResolvedValue(user as any);

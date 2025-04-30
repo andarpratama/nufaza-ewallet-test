@@ -1,4 +1,3 @@
-// src/__tests__/register.test.ts
 import request from 'supertest';
 import app from '../app';
 import * as registerService from '../app/register/register.service';
