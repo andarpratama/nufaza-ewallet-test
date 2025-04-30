@@ -23,7 +23,7 @@ export const addDepositeSchema = yup.object({
     .number()
     .required('amount is required')
     .typeError('amount must be a number')
-    .min(0, 'amount must be greater than or equal to 0'),
+    .min(1, 'amount must be greater than or equal to 1'),
 });
 
 export const transferSchema = yup.object({
@@ -35,6 +35,6 @@ export const transferSchema = yup.object({
     .number()
     .required('amount is required')
     .typeError('amount must be a number')
-    .min(0, 'amount must be greater than or equal to 0'),
+    .min(1, 'amount must be greater than or equal to 1'),
 });
 

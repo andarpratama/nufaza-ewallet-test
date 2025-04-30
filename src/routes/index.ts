@@ -1,7 +1,7 @@
 // src/routes.ts
 import { Router } from "express";
-import registerRoutes from "../register/register.route";
-import accountRoutes from "../account/account.route";
+import registerRoutes from "../app/register/register.route";
+import accountRoutes from "../app/account/account.route";
 
 const router = Router();
 router.use(registerRoutes);
